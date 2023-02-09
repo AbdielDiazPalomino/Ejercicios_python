@@ -1,0 +1,41 @@
+import requests
+from googletrans import Translator
+
+translator = Translator(service_urls=['translate.googleapis.com'])
+
+city = input("Ingrese el nombre de la ciudad: ")
+
+url = "http://api.openweathermap.org/data/2.5/weather?q={}&appid=b756506eeb9801cf1b25eac2192ed159&units=metric".format(city)
+
+res = requests.get(url)
+
+data = res.json()
+
+temp = data["main"]["temp_min"]
+temp2 = data["main"]["temp_max"]
+viento = data["wind"]["speed"]
+
+descripcion = data["weather"][0]["description"]
+
+contador = 0
+contador2 = 0
+contador3 = 0
+
+des2 = str(translator.translate(descripcion, dest = 'es'))
+
+for i in des2:
+    contador += 1
+    if i == ",":
+        contador2 += 1
+        if contador2 == 3:
+            saber = contador
+            contador2 = 0
+            traduccion = des2[33:saber-1]
+    else:
+        pass
+#print(des2)
+
+print("Temperatura minima: ", temp)
+print("Temperatura maxima: ", temp2)
+print("Velocidad del viento: ", viento, "m/s")
+print("Descripción: ", traduccion)
