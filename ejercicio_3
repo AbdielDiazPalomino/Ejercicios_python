@@ -1,0 +1,15 @@
+def calu_primos(limite):
+    primos = []
+    for i in range(2, limite):
+        primo = True
+        for j in range(2, i):
+            if i % j == 0:
+                primo = False
+                break
+        if primo:
+            primos.append(i)
+    print(primos)
+
+limite = int(input("Coloque el final de numero primos del (1 a N):"))
+
+calu_primos(limite)
