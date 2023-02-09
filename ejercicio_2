@@ -1,0 +1,18 @@
+telefonos = {
+
+    "Pepe":985456321, 
+    "Pepe 2":987456721, 
+    "Maria":654254321, 
+    "Sofia":917659513, 
+    "Ana":357159846,
+    "Jose":951753846,
+    "Ana":943842671,
+    
+    }
+
+busca = input("Ingrese el nombre a buscar: ")
+
+
+for i in telefonos:
+    if busca in i:
+        print(f"El telefono de {i} es {telefonos[i]}")
