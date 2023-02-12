@@ -1,0 +1,43 @@
+password = input("Ingrese la contraseña: ")
+
+if len(password) < 6 or len(password) > 12:
+    print("la clave tiene que ser de 6 a 12 caracteres")
+
+#asd537 d5s3a7 s35ad7 5a3ds7 3das57 as
+
+long = len(password)
+
+mitad = int(len(password) / 2) - 1
+#print(mitad)
+indice = mitad 
+indice2 = mitad + 1
+
+palabra = password
+
+contador = 0
+
+while len(palabra)<= 32:
+    if len(password) < 6 or len(password) > 12:
+        print("la clave tiene que ser de 6 a 12 caracteres")
+        break
+    password = palabra 
+    #print("este es la clave:",password)
+    indice2 = mitad + 1
+    
+    while indice2 < long:
+
+        #print(password[indice],end ="")
+        palabra += password[indice]
+        indice -= 1
+        
+        #print(password[indice2], end = "")
+        palabra += password[indice2]
+        indice2 += 1
+
+    
+    contador +=1
+
+if len(palabra) >32:
+    new_palabra = len(palabra)-32
+    print(palabra[0:-new_palabra])
+    
